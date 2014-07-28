@@ -26,7 +26,7 @@ function send( text ) {
 	Server.send( 'message', text );
 }
 $(document).ready(function() {
-	log('Connecting...');
+	log('<em>Connecting...</em>');
 	Server = new FancyWebSocket('ws://127.0.0.1:9300');
 	$('#message').keypress(function(e) {
 		if(e.keyCode == 13 && this.value) {
@@ -36,11 +36,11 @@ $(document).ready(function() {
 	});
 	//Let the user know we're connected
 	Server.bind('open', function() {
-		log( "Connected." );
+		log( "<em>Connected.</em>" );
 	});
 	//OH NOES! Disconnection occurred.
 	Server.bind('close', function( data ) {
-		log( "Disconnected." );
+		log( "<em>Disconnected.</em>" );
 	});
 	//Log any messages sent from server
 	Server.bind('message', function(payload) {
